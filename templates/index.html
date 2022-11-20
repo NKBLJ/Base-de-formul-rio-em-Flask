@@ -1,0 +1,31 @@
+<div>
+  <form method="POST" action="">
+    {{ form1.csrf_token }}
+    <fieldset>
+        {{ form1.email1.label() }}
+        {{ form1.email1() }}
+        {% if form1.email1.errors and 'botao1' in request.form %}
+          {% for erro in form1.email1.errors %}
+            {{ erro }}
+          {% endfor %}
+        {% endif %}
+    </fieldset>
+    {{ form1.botao1() }}
+  </form>
+</div>
+<br>
+<div>
+  <form method="POST" action="">
+    {{ form2.csrf_token }}
+    <fieldset method="POST" action="">
+        {{ form2.email2.label() }}
+        {{ form2.email2() }}
+        {% if form2.email2.errors and 'botao2' in request.form %}
+          {% for erro in form2.email2.errors %}
+            {{ erro }}
+          {% endfor %}
+        {% endif %}
+    </fieldset>
+    {{ form2.botao2() }}
+  </form>
+</div>
